@@ -126,22 +126,22 @@ $(document).ready(function(){
   let player2 = new Player(0); // this sets player2 score to zero
   let game = new Game(1, 0, player1, player2, 0); // this creates an object called game with all the properties declared from our Game constructor
   $("#start-button").click(function() { // when start button is clicked
-    resetPage();
-    resetScores(game);
-    displayScores(game);
-    displayTurn(game.turn);
-    enableRoll();
+    resetPage(); // this resets the page from any previous games played
+    resetScores(game); // this resets the scores of of every property of the game object, which is why we pass game as an argument
+    displayScores(game); // this activates the score display that calls on player1, player2 and turnTotal property located in the game object
+    displayTurn(game.turn); // this activates the display turn function that changes the border color around the players depending on who's turn it is
+    enableRoll(); // this activates the roll button once the game is started
   });
-  $("#roll-button").click(function() {
-    let roll = rollDice();
-    displayDiceRoll(roll);
-    if (roll === 1) {
-      game.switchTurn();
-      displayTurn(game.turn);
-      displayScores(game);
-    } else {
-      game.addToTurnTotal(roll);
-      displayScores(game);
+  $("#roll-button").click(function() { // this function activates when the roll button is clicked
+    let roll = rollDice(); // create a variable that holds the value of the dice roll, which is found using our rollDice function
+    displayDiceRoll(roll); // this displays the value of the dice roll
+    if (roll === 1) { // if the dice rolls a 1 then...
+      game.switchTurn();// switch to the other player using our switchTurn prototype
+      displayTurn(game.turn);// then display who's turn it is using our displayTurn function which shows bold color around player, this is called by the game.turn argument 
+      displayScores(game); // then display that player's score
+    } else { // otherwise... 
+      game.addToTurnTotal(roll); // add the value of the dice roll to the turnTotal
+      displayScores(game); // and display the score of this player
     }
   });
   $("#hold-button").click(function() {
