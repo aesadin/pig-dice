@@ -122,7 +122,7 @@ function computerPlayer(game) { // This is all to do with AI
 }
 
 $(document).ready(function(){
-  let player1 = new Player(0); // this sets player1 score to zero
+  let player1 = new Player(0); // this sets player1 score to zero, makes player1 an object and inserts the score property from the Player constructor into the player1 object
   let player2 = new Player(0); // this sets player2 score to zero
   let game = new Game(1, 0, player1, player2, 0); // this creates an object called game with all the properties declared from our Game constructor
   $("#start-button").click(function() { // when start button is clicked
