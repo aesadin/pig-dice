@@ -28,6 +28,7 @@ HTML
 CSS  
 Bootstrap  
 jQuery
+Javascript
 
 ## Legal
 
